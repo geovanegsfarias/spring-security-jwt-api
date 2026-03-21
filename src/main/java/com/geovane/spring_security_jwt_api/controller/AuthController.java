@@ -2,6 +2,7 @@ package com.geovane.spring_security_jwt_api.controller;
 
 import com.geovane.spring_security_jwt_api.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,8 @@ public class AuthController {
     }
 
     @PostMapping
-    public String authenticate() {
-        return authService.authenticate();
+    public String authenticate(Authentication authentication) {
+        return authService.authenticate(authentication);
     }
 
 }
