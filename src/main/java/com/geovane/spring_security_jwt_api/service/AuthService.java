@@ -1,5 +1,6 @@
 package com.geovane.spring_security_jwt_api.service;
 
+import com.geovane.spring_security_jwt_api.dto.TokenResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,8 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
-    public String authenticate(Authentication authentication) {
-        return jwtService.generateToken(authentication);
+    public TokenResponse authenticate(Authentication authentication) {
+        return new TokenResponse(jwtService.generateToken(authentication));
     }
 
 }
